@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white_lite"
+        app:layout_constraintBottom_toTopOf="@id/bnv_navigation"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_lite"
+            tools:context=".MainActivity">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_avatar"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="42dp"
+                android:background="@drawable/bg_avatar"
+                android:paddingTop="4dp"
+                android:src="@drawable/avatar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tv_welcome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="sans-serif"
+                android:gravity="start"
+                android:text="Welcome"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/iv_notification"
+                app:layout_constraintStart_toEndOf="@id/iv_avatar"
+                app:layout_constraintTop_toTopOf="@id/iv_avatar" />
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif"
+                android:gravity="start"
+                android:text="Sambudi Sugya Putra"
+                android:textColor="@color/blue_700"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/tv_welcome"
+                app:layout_constraintStart_toStartOf="@id/tv_welcome"
+                app:layout_constraintTop_toBottomOf="@id/tv_welcome" />
+
+            <ImageView
+                android:id="@+id/iv_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_avatar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_avatar"
+                app:srcCompat="@drawable/ic_notification"
+                tools:ignore="ContentDescription" />
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/bg_search"
+                android:clickable="false"
+                android:editable="false"
+                android:focusable="false"
+                android:fontFamily="sans-serif"
+                android:hint="Search Destination"
+                android:importantForAutofill="no"
+                android:paddingVertical="12dp"
+                android:paddingStart="48dp"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/iv_notification"
+                app:layout_constraintStart_toStartOf="@id/iv_avatar"
+                app:layout_constraintTop_toBottomOf="@id/tv_user_name"
+                tools:ignore="RtlSymmetry,TextFields" />
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/et_search"
+                app:layout_constraintStart_toStartOf="@id/et_search"
+                app:layout_constraintTop_toTopOf="@id/et_search"
+                app:srcCompat="@drawable/ic_search"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/iv_setting"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_setting"
+                android:padding="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/et_search"
+                app:layout_constraintEnd_toEndOf="@id/et_search"
+                app:layout_constraintTop_toTopOf="@id/et_search"
+                app:srcCompat="@drawable/ic_setting"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tv_title_recommendation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif"
+                android:gravity="start"
+                android:text="Recommended"
+                android:textColor="@color/blue_700"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:drawableRightCompat="@drawable/ic_more"
+                app:layout_constraintEnd_toEndOf="@id/iv_notification"
+                app:layout_constraintStart_toStartOf="@id/iv_avatar"
+                app:layout_constraintTop_toBottomOf="@id/et_search" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recommendation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingStart="20dp"
+                android:paddingEnd="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_recommendation"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/tv_title_top_destination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif"
+                android:gravity="start"
+                android:text="Top Destination"
+                android:textColor="@color/blue_700"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:drawableRightCompat="@drawable/ic_more"
+                app:layout_constraintEnd_toEndOf="@id/iv_notification"
+                app:layout_constraintStart_toStartOf="@id/iv_avatar"
+                app:layout_constraintTop_toBottomOf="@id/rv_recommendation" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_top_destination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingStart="6dp"
+                android:paddingEnd="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_top_destination"
+                tools:ignore="RtlSymmetry" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnv_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="0dp"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="10dp"
+        app:itemIconSize="20dp"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_main" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
